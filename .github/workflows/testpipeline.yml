@@ -1,24 +1,41 @@
 on:
   workflow_dispatch:
-  
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+        default: test
+      boolean:
+        type: boolean
+        description: with or without tests
+        default: true
+      SomeOption:
+        type: choice
+        description: Select Version
+        options:
+        - '1.1'
+        - '2.5'
+        - '3.7'
   push:
-    branches: [ main, stage ]
+    branches: [ main ]
+  
+
 
 jobs:
   testjob:
     name: TestJob 
     runs-on: ubuntu-latest
 
-  steps:
-   - name: Clone
-     uses: actions/checkout@v2
+    steps:
+      - name: Clone
+        uses: actions/checkout@v2
 
-   - name: Set up Python
-     uses: actions/setup-python@v2
-     with:
-     python-version: '3.9'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
 
-   - name: Test our shell script
-     run: |
-      pip install pandas
-      pip install setuptools
+      - name: Test our shell script
+        run: | 
+          pip install pandas
+          pip install setuptools
