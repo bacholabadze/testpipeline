@@ -5,8 +5,8 @@ on:
 
 jobs:
   testjob:
-  name: TestJob 
-  runs-on: ubuntu-latest
+    name: TestJob 
+    runs-on: ubuntu-latest
 
   steps:
     - name: Clone
