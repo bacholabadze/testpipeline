@@ -1,5 +1,6 @@
 on:
   workflow_dispatch:
+  
   push:
     branches: [ main, stage ]
 
@@ -9,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-    - name: Clone
-      uses: actions/checkout@v2
+   - name: Clone
+     uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
+   - name: Set up Python
+     uses: actions/setup-python@v2
+     with:
+     python-version: '3.9'
 
-    - name: Test our shell script
-      run: |
-        pip install pandas
-        pip install setuptools
+   - name: Test our shell script
+     run: |
+      pip install pandas
+      pip install setuptools
